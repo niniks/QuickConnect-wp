@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Connect websites
+Plugin Name: QuickConnect
 Plugin URI: http://skycode.nl/
 Description: Quickly add connected websites and information in a nice fixed widget
 Author: Tim Makor
@@ -27,7 +27,7 @@ Version: 1.0.0
 function my_init() {
 if (!is_admin()) {
 wp_enqueue_script('the_js', plugins_url('includes/js/connect-websites.js',__FILE__),array('jquery'), true );
-wp_enqueue_style('the_css', plugins_url('includes/css/style.css',__FILE__) );
+wp_enqueue_style('the_css', plugins_url('includes/css/style.php',__FILE__) );
 wp_enqueue_style('the_icons', plugins_url('includes/css/fontawesome.min.css',__FILE__) );
 wp_enqueue_style('the_effects', plugins_url('includes/css/animate.css',__FILE__) );
 } else {
@@ -60,7 +60,7 @@ add_action('wp_footer', 'add_websitesConnected');
 add_action('admin_menu', 'connect_websites_plugin_create_menu');
 function connect_websites_plugin_create_menu() {
 	//create new top-level menu
-	add_menu_page('Connect websites settings', 'Connect websites', 'administrator', __FILE__, 'connect_websites_plugin_settings_page' , plugins_url('includes/images/icon.png', __FILE__) );
+	add_menu_page('QuickConnect settings', 'QuickConnect', 'administrator', __FILE__, 'connect_websites_plugin_settings_page' , plugins_url('includes/images/icon.png', __FILE__) );
 	//call register settings function
 	add_action( 'admin_init', 'register_connect_websites_plugin_settings' );
 }
@@ -74,7 +74,7 @@ function register_connect_websites_plugin_settings() {
 function connect_websites_plugin_settings_page() {
 ?>
 <div class="wrap">
-<h2>Connect websites</h2>
+<h2>QuickConnect settings</h2>
 <form method="post" action="options.php">
 	<?php settings_fields( 'connect-websites-plugin-settings-group' ); ?>
 
