@@ -5,8 +5,8 @@
 
             global $options;
             //Main colors
-            $backgroundColor = $options['background_color'];
-            
+            $backgroundColor = get_option('background_color');
+            $buttonColor = get_option('button_color');
 
 
   header('Content-type: text/css');
@@ -19,7 +19,7 @@
 }
 
 .connect-websites .connect-button {
-	background: #000;
+	background: <?php echo $buttonColor; ?>;
     color: #fff;
     font-size: 24px;
     margin: 0;
@@ -30,7 +30,7 @@
 .connect-websites ul {
 	    margin: 10px 10px;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.49);
+    background: <?php echo $backgroundColor; ?>;
     padding: 11px;
     position: fixed;
     right: -10px;

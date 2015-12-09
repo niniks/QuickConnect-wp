@@ -71,6 +71,8 @@ function register_connect_websites_plugin_settings() {
 	register_setting( 'connect-websites-plugin-settings-group', 'connect-description' );
 	register_setting( 'connect-websites-plugin-settings-group', 'web_one' );
 	register_setting( 'connect-websites-plugin-settings-group', 'web_two' );
+	register_setting( 'connect-websites-plugin-settings-group', 'background_color' );
+	register_setting( 'connect-websites-plugin-settings-group', 'button_color' );
 
 }
 function connect_websites_plugin_settings_page() {
@@ -107,9 +109,9 @@ function connect_websites_plugin_settings_page() {
 
 			<p><strong>Website omschrijving</strong></p><textarea name="connect-description" id="" cols="30" rows="10"><?php echo esc_attr( get_option('connect-description') );  ?></textarea>
 <p><strong>Knop kleur</strong></p>
-<input type="text" class="rainbowpick" value="red" name="r1" />
+<input type="text" class="rainbowpick" value="<?php echo get_option('button_color') ?>" name="button_color" />
 <p><strong>Slideout achtergrond kleur</strong></p>
-<input type="text" class="rainbowpick" value="red" name="r1" />
+<input type="text" class="rainbowpick" value="<?php echo get_option('background_color') ?>" name="background_color" />
 		
 		<?php submit_button(); ?>
 	</form>
