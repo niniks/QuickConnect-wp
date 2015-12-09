@@ -32,8 +32,10 @@ wp_enqueue_style('the_icons', plugins_url('includes/css/fontawesome.min.css',__F
 wp_enqueue_style('the_effects', plugins_url('includes/css/animate.css',__FILE__) );
 } else {
 	wp_enqueue_script('the_recopy', plugins_url('includes/js/reCopy.js',__FILE__),array('jquery'), false );
-	wp_enqueue_script('the_connect', plugins_url('includes/js/connect-websites.js',__FILE__),array('jquery'), false );
-	wp_enqueue_style('the_admin', plugins_url('includes/css/admin.css',__FILE__) );
+	wp_enqueue_script('the_color', plugins_url('includes/js/rgbacolorpicker.min.js',__FILE__),array('jquery'), false );
+	wp_enqueue_script('the_connect', plugins_url('includes/js/connect-admin.js',__FILE__),array('jquery'), false );
+	wp_enqueue_style('the_color_css', plugins_url('includes/css/rgbacolorpicker.css',__FILE__), false );
+	wp_enqueue_style('the_admin', plugins_url('includes/css/admin.css',__FILE__), false );
 		
 }
 }
@@ -104,7 +106,10 @@ function connect_websites_plugin_settings_page() {
 				<p><a href="#" class="add" rel=".clone">Add More</a></p></td>
 
 			<p><strong>Website omschrijving</strong></p><textarea name="connect-description" id="" cols="30" rows="10"><?php echo esc_attr( get_option('connect-description') );  ?></textarea>
-
+<p><strong>Knop kleur</strong></p>
+<input type="text" class="rainbowpick" value="red" name="r1" />
+<p><strong>Slideout achtergrond kleur</strong></p>
+<input type="text" class="rainbowpick" value="red" name="r1" />
 		
 		<?php submit_button(); ?>
 	</form>
